@@ -54,36 +54,38 @@ int main(int argc, char *argv[])
 	if(print_attr(&MyAttr) != 0)
 		return 1;
 
-    char message[1024];
+    //char message[1024];
 
     // Example Paper Jam (Error)
-    snprintf(message, sizeof(message),
-             "ATTR: printer-alert="
-             "{"
-             "alert-code=1001,"
-             "alert-severity=error,"
-             "alert-description='Paper Jam in Tray 1',"
-             "alert-location='Tray 1'"
-             "}\n");
-    fprintf(stderr, "%s", message);
+//    snprintf(message, sizeof(message),
+//             "ATTR: printer-alert="
+//             "{"
+//             "alert-code=1001,"
+//             "alert-severity=error,"
+//             "alert-description='Paper Jam in Tray 1',"
+//             "alert-location='Tray 1'"
+//             "}\n");
+    //fprintf(stderr, "%s", message);
 	fprintf(stderr, "STATE: %s\n", "cover-open");
     fflush(stderr);
 
-	sleep(10);
+	sleep(4);
 
-    snprintf(message, sizeof(message),
-             "ATTR: printer-alert="
-             "{"
-             "alert-code=0000,"
-             "alert-severity=none,"
-             "alert-description=none,"
-             "alert-location=none"
-             "}\n");
-    fprintf(stderr, "%s", message);
+//    snprintf(message, sizeof(message),
+//             "ATTR: printer-alert="
+//             "{"
+//             "alert-code=0000,"
+//             "alert-severity=none,"
+//             "alert-description=none,"
+//             "alert-location=none"
+//             "}\n");
+    //fprintf(stderr, "%s", message);
 	fprintf(stderr, "STATE: -%s\n", "cover-open");
 	fflush(stderr);
 
-	sleep(10);
+	sleep(4);
+
+	return 1; //abort
 
 	return 0;
 }
@@ -152,14 +154,14 @@ int populate_attr(attr *s)
 
 int print_attr(attr *s)
 {
-	fprintf(stderr, "INFO: document format: %s\n", s->document_format);
-	fprintf(stderr, "INFO: label mode: %s\n", s->label_mode);
-	fprintf(stderr, "INFO: media col: %s\n", s->media_col);
-	fprintf(stderr, "INFO: print darkness: %s\n", s->print_darkness);
-	fprintf(stderr, "INFO: print speed: %s\n", s->print_speed);
-	fprintf(stderr, "INFO: printer darkness: %s\n", s->printer_darkness);
-	fprintf(stderr, "INFO: printer resolution: %s\n", s->printer_resolution);
-	fprintf(stderr, "INFO: color mode: %s\n", s->color_mode);
+	fprintf(stderr, "INFO:Document format: %s\n", s->document_format);
+	fprintf(stderr, "INFO:Label mode: %s\n", s->label_mode);
+	fprintf(stderr, "INFO:Media col: %s\n", s->media_col);
+	fprintf(stderr, "INFO:Print darkness: %s\n", s->print_darkness);
+	fprintf(stderr, "INFO:Print speed: %s\n", s->print_speed);
+	fprintf(stderr, "INFO:Printer darkness: %s\n", s->printer_darkness);
+	fprintf(stderr, "INFO:Printer resolution: %s\n", s->printer_resolution);
+	fprintf(stderr, "INFO:Color mode: %s\n", s->color_mode);
 
 	return 0;
 }
